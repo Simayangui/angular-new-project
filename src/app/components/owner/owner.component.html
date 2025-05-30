@@ -1,0 +1,51 @@
+<div class="owner-list-container">
+    <h2 class="owner-list-title">Liste des propriétaires</h2>
+  
+    <button class="add-owner-btn" (click)="openAddModal()">+ Ajouter</button>
+  
+    <table class="owner-table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Téléphone</th>
+          <th>Adresse</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let owner of owners">
+          <td>{{ owner.name }}</td>
+          <td>{{ owner.email }}</td>
+          <td>{{ owner.phone }}</td>
+          <td>{{ owner.adresse }}</td>
+          <td>
+            <div class="action-buttons">
+              <button class="edit-btn" (click)="openEditModal(owner)">Modifier</button>
+              <button class="delete-btn" (click)="deleteOwner(owner.id)">Supprimer</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+  <!-- MODAL -->
+<!-- Modal -->
+<div *ngIf="isModalOpen" class="modal-backdrop">
+    <div class="modal">
+      <h2>{{ isEditMode ? 'Modifier' : 'Ajouter' }} un propriétaire</h2>
+      <input type="text" [(ngModel)]="selectedOwner.name" placeholder="Nom" />
+      <input type="email" [(ngModel)]="selectedOwner.email" placeholder="Email" />
+      <input type="text" [(ngModel)]="selectedOwner.phone" placeholder="Téléphone" />
+      <input type="text" [(ngModel)]="selectedOwner.adresse" placeholder="Adresse" />
+      
+      <div class="modal-buttons">
+        <button class="cancel" (click)="closeModal()">Annuler</button>
+        <button class="save" (click)="submitForm()">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+  
+  

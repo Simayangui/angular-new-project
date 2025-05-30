@@ -1,0 +1,179 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin Clinic",
+      "email": "admin@example.com",
+      "password": "admin123"
+    }
+  ],
+  "owners": [
+    {
+      "id": "1",
+      "name": "Alice Dupont",
+      "email": "alice@example.com",
+      "phone": "0601010101",
+      "adresse": "Paris"
+    },
+    {
+      "id": "2",
+      "name": "Bob Martin",
+      "email": "bob@example.com",
+      "phone": "0602020202",
+      "adresse": "Lyon"
+    },
+    {
+      "id": "3",
+      "name": "Claire Bernard",
+      "email": "claire@example.com",
+      "phone": "0603030303",
+      "adresse": "Marseille"
+    },
+    {
+      "id": "4",
+      "name": "David Moreau",
+      "email": "david@example.com",
+      "phone": "0604040404",
+      "adresse": "Toulouse"
+    },
+    {
+      "id": "5",
+      "name": "Emma Petit",
+      "email": "emma@example.com",
+      "phone": "0605050505",
+      "adresse": "Nice"
+    }
+  ],
+  "pets": [
+    {
+      "id": "1",
+      "name": "Rex",
+      "birthDate": "2021-05-20",
+      "species": "Chien",
+      "owner_id": 1
+    },
+    {
+      "id": "2",
+      "name": "Mimi",
+      "birthDate": "2020-11-11",
+      "species": "Chat",
+      "owner_id": 1
+    },
+    {
+      "id": "3",
+      "name": "Bobby",
+      "birthDate": "2019-07-01",
+      "species": "Chien",
+      "owner_id": 2
+    },
+    {
+      "id": "4",
+      "name": "Luna",
+      "birthDate": "2022-02-22",
+      "species": "Chat",
+      "owner_id": 3
+    },
+    {
+      "id": "5",
+      "name": "Rocky",
+      "birthDate": "2023-01-15",
+      "species": "Chien",
+      "owner_id": 4
+    },
+    {
+      "id": "6",
+      "name": "Nala",
+      "birthDate": "2018-03-08",
+      "species": "Chat",
+      "owner_id": 5
+    },
+    {
+      "id": "7",
+      "name": "Coco",
+      "birthDate": "2021-09-10",
+      "species": "Chien",
+      "owner_id": 5
+    }
+  ],
+  "vets": [
+    {
+      "id": "2",
+      "firstName": "Marc",
+      "lastName": "Lemoine",
+      "speciality": "Surgery",
+      "phone": "0607070707"
+    },
+    {
+      "id": "3",
+      "firstName": "Claire",
+      "lastName": "Moreau",
+      "speciality": "Dermatology",
+      "phone": "0608080808"
+    },
+    {
+      "id": "4",
+      "firstName": "Paul",
+      "lastName": "Girard",
+      "speciality": "General",
+      "phone": "0609090909"
+    }
+  ],
+  "appointements": [
+    {
+      "id": "2",
+      "petId": 2,
+      "vetId": 3,
+      "date": "2025-06-02T11:30:00",
+      "description": "Skin allergy treatment"
+    },
+    {
+      "id": "3",
+      "petId": 3,
+      "vetId": 2,
+      "date": "2025-06-03T14:00:00",
+      "description": "Knee surgery consultation"
+    },
+    {
+      "id": "4",
+      "petId": 4,
+      "vetId": 4,
+      "date": "2025-06-04T09:15:00",
+      "description": "Vaccination"
+    },
+    {
+      "id": "5",
+      "petId": 5,
+      "vetId": 2,
+      "date": "2025-06-05T15:00:00",
+      "description": "Health check"
+    },
+    {
+      "id": "6",
+      "petId": 6,
+      "vetId": 3,
+      "date": "2025-06-06T13:00:00",
+      "description": "Fur loss consultation"
+    },
+    {
+      "id": "7",
+      "petId": 7,
+      "vetId": 1,
+      "date": "2025-06-07T10:45:00",
+      "description": "Teeth cleaning"
+    },
+    {
+      "id": "8",
+      "petId": 1,
+      "vetId": 4,
+      "date": "2025-06-08T16:30:00",
+      "description": "General check-up"
+    },
+    {
+      "id": 0,
+      "petId": "3",
+      "vetId": "2",
+      "date": "2025-05-01T10:10",
+      "description": "vaccination"
+    }
+  ]
+}

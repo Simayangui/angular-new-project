@@ -1,0 +1,44 @@
+<div class="pets-container">
+    <h2>Pets List</h2>
+    <button (click)="openAddPopup()">Ajouter</button>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Birth Date</th>
+          <th>Species</th>
+          <th>Owner</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pet of pets">
+          <td>{{ pet.name }}</td>
+          <td>{{ pet.birthDate }}</td>
+          <td>{{ pet.species }}</td>
+          <td>{{ getOwnerName(pet.owner_id) }}</td>
+          <td>
+            <button (click)="openEditPopup(pet)">Modifier</button>
+            <button (click)="deletePet(pet.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Popup -->
+  <div class="popup" *ngIf="showPopup">
+    <form (submit)="savePet()">
+        <h3>{{ isEditMode ? 'Edit Pet' : 'Add Pet' }}</h3>
+        <input type="text" [(ngModel)]="selectedPet.name" name="name" placeholder="Name" required />
+      <input type="date" [(ngModel)]="selectedPet.birthDate" name="birthDate" required />
+      <input type="text" [(ngModel)]="selectedPet.species" name="species" placeholder="Species" required />
+      <select [(ngModel)]="selectedPet.owner_id" name="owner_id" required>
+        <option *ngFor="let owner of owners" [value]="owner.id">{{ owner.name }}</option>
+      </select>
+      <button type="submit">Save</button>
+      <button type="button" (click)="closePopup()">Cancel</button>
+    </form>
+  </div>
+  

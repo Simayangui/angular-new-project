@@ -1,0 +1,39 @@
+
+<div class="appointments-container">
+  <h2>Appointments</h2>
+  <button (click)="openAddPopup()">Add Appointment</button>
+
+  <div class="card-grid">
+    <div class="card" *ngFor="let appt of appointments">
+      <h3>{{ getPetName(appt.petId) }}</h3>
+      <p><strong>Vet:</strong> {{ getVetName(appt.vetId) }}</p>
+      <p><strong>Date:</strong> {{ appt.date | date:'medium' }}</p>
+      <p><strong>Description:</strong> {{ appt.description }}</p>
+      <div>
+        <button (click)="openEditPopup(appt)">Edit</button>
+        <button (click)="deleteAppointment(appt.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="popup" *ngIf="showPopup">
+  <form (ngSubmit)="saveAppointment()">
+    <h3>{{ isEditMode ? 'Edit' : 'Add' }} Appointment</h3>
+
+    <select [(ngModel)]="selectedAppointment.petId" name="petId" required>
+      <option *ngFor="let pet of pets" [value]="pet.id">{{ pet.name }}</option>
+    </select>
+
+    <select [(ngModel)]="selectedAppointment.vetId" name="vetId" required>
+      <option *ngFor="let vet of vets" [value]="vet.id">{{ vet.firstName }} {{ vet.lastName }}</option>
+    </select>
+
+    <input type="datetime-local" [(ngModel)]="selectedAppointment.date" name="date" required />
+
+    <textarea [(ngModel)]="selectedAppointment.description" name="description" placeholder="Description" required></textarea>
+
+    <button type="submit">Save</button>
+    <button type="button" (click)="closePopup()">Cancel</button>
+  </form>
+</div>

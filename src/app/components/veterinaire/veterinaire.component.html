@@ -1,0 +1,41 @@
+<div class="vets-container">
+  <h2>Veterinarians List</h2>
+  <button (click)="openAddPopup()">Ajouter</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Speciality</th>
+        <th>Phone</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vet of veterinarians">
+        <td>{{ vet.firstName }}</td>
+        <td>{{ vet.lastName }}</td>
+        <td>{{ vet.speciality }}</td>
+        <td>{{ vet.phone }}</td>
+        <td>
+          <button (click)="openEditPopup(vet)">Modifier</button>
+          <button (click)="deleteVeterinaire(vet.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Popup -->
+<div class="popup" *ngIf="showPopup">
+  <form (submit)="saveVeterinaire()">
+    <h3>{{ isEditMode ? 'Edit Veterinaire' : 'Add Veterinaire' }}</h3>
+    <input type="text" [(ngModel)]="selectedVeterinaire.firstName" name="firstName" placeholder="First Name" required />
+    <input type="text" [(ngModel)]="selectedVeterinaire.lastName" name="lastName" placeholder="Last Name" required />
+    <input type="text" [(ngModel)]="selectedVeterinaire.speciality" name="speciality" placeholder="Speciality" required />
+    <input type="text" [(ngModel)]="selectedVeterinaire.phone" name="phone" placeholder="Phone" required />
+    <button type="submit">Save</button>
+    <button type="button" (click)="closePopup()">Cancel</button>
+  </form>
+</div>

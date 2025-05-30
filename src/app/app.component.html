@@ -1,0 +1,17 @@
+<!-- Affiche la navbar UNIQUEMENT si connecté -->
+<nav class="navbar" *ngIf="authService.isAuthenticated()">
+  <div class="logo">
+    <i class="fas fa-dog"></i> PetClinic
+  </div>
+  <ul class="nav-links">
+    <li><a routerLink="/owners"><i class="fas fa-user"></i> Owners</a></li>
+    <li><a routerLink="/pets"><i class="fas fa-paw"></i> Pets</a></li>
+    <li><a routerLink="/veterinaire"><i class="fas fa-stethoscope"></i> Veterinarians</a></li>
+    <li><a routerLink="/appointement"><i class="fas fa-calendar-alt"></i> Appointments</a></li>
+    <li><a (click)="logout()" style="cursor:pointer;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+  </ul>
+</nav>
+
+<div class="overlay">
+  <router-outlet></router-outlet>
+</div>
